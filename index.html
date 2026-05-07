@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tran Tuan Kiet – .NET Developer CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --red: #c0392b;
+      --red-light: #e74c3c;
+      --dark: #1a1a2e;
+      --dark2: #16213e;
+      --card: #0f3460;
+      --accent: #e94560;
+      --text: #eaeaea;
+      --muted: #a0aec0;
+      --white: #ffffff;
+      --gold: #f6c90e;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      min-height: 100vh;
+      color: var(--text);
+      padding: 2rem 1rem;
+    }
+
+    /* ── WRAPPER ── */
+    .cv-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    /* ── HERO HEADER ── */
+    .hero {
+      background: linear-gradient(120deg, #1a1a2e 60%, #2d1b4e 100%);
+      padding: 3rem 3rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(233, 69, 96, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-left {
+      flex: 1;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    .hero .role {
+      display: inline-block;
+      margin-top: .6rem;
+      padding: .3rem 1.1rem;
+      background: linear-gradient(90deg, var(--accent), #c0392b);
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: .5px;
+    }
+
+    .hero-right {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      padding: 1.2rem 1.6rem;
+      min-width: 220px;
+    }
+
+    .hero-right h3 {
+      color: var(--gold);
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: .7rem;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      margin-bottom: .5rem;
+      font-size: .88rem;
+      color: var(--muted);
+    }
+
+    .info-row span {
+      color: var(--text);
+    }
+
+    .info-icon {
+      font-size: 1rem;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 0;
+    }
+
+    /* ── SECTIONS ── */
+    .main-col {
+      padding: 2.5rem 2.5rem 2.5rem 3rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .side-col {
+      padding: 2.5rem 2rem;
+      background: rgba(0, 0, 0, 0.18);
+    }
+
+    .section {
+      margin-bottom: 2.4rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.45rem;
+      color: var(--accent);
+      padding-bottom: .5rem;
+      border-bottom: 2px solid rgba(233, 69, 96, 0.35);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .section-title-side {
+      font-size: .75rem;
+      font-family: 'Inter', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      border-bottom: 1px solid rgba(246, 201, 14, 0.3);
+      padding-bottom: .5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* aspiration */
+    .aspiration p {
+      font-size: .92rem;
+      line-height: 1.75;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* work experience */
+    .job {
+      margin-bottom: 1.8rem;
+      padding-left: 1rem;
+      border-left: 3px solid rgba(233, 69, 96, 0.4);
+    }
+
+    .job-header {
+      margin-bottom: .5rem;
+    }
+
+    .job-period {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .job-company {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .job-position {
+      font-size: .88rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: .2rem;
+    }
+
+    .job-meta {
+      margin: .6rem 0;
+    }
+
+    .meta-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      font-size: .75rem;
+      padding: .2rem .55rem;
+      margin: .2rem .2rem .2rem 0;
+      color: var(--muted);
+    }
+
+    .meta-tag strong {
+      color: var(--text);
+    }
+
+    .job ul {
+      padding-left: 1.1rem;
+    }
+
+    .job ul li {
+      font-size: .83rem;
+      color: var(--muted);
+      margin-bottom: .3rem;
+      line-height: 1.55;
+    }
+
+    .job ul li::marker {
+      color: var(--accent);
+    }
+
+    .sub-label {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: .5rem 0 .25rem;
+    }
+
+    /* education */
+    .edu-block {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+    }
+
+    .edu-school {
+      font-weight: 700;
+      color: var(--white);
+      font-size: .95rem;
+    }
+
+    .edu-major {
+      color: var(--accent);
+      font-size: .85rem;
+      margin: .3rem 0;
+      font-weight: 600;
+    }
+
+    .edu-period {
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    /* ── SIDEBAR ── */
+    /* Skills */
+    .skill-group {
+      margin-bottom: 1.1rem;
+    }
+
+    .skill-label {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: .45rem;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+    }
+
+    .tag {
+      background: rgba(233, 69, 96, 0.15);
+      border: 1px solid rgba(233, 69, 96, 0.3);
+      border-radius: 50px;
+      font-size: .72rem;
+      padding: .22rem .65rem;
+      color: var(--text);
+      transition: background .2s;
+    }
+
+    .tag:hover {
+      background: rgba(233, 69, 96, 0.35);
+    }
+
+    .tag-blue {
+      background: rgba(100, 149, 237, 0.15);
+      border-color: rgba(100, 149, 237, 0.3);
+    }
+
+    .tag-green {
+      background: rgba(72, 199, 142, 0.15);
+      border-color: rgba(72, 199, 142, 0.3);
+    }
+
+    /* interests */
+    .interest-list {
+      list-style: none;
+    }
+
+    .interest-list li {
+      font-size: .84rem;
+      color: var(--muted);
+      padding: .3rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .interest-list li::before {
+      content: '▸';
+      color: var(--accent);
+    }
+
+    /* project mgmt */
+    .pm-list {
+      list-style: none;
+    }
+
+    .pm-list li {
+      font-size: .82rem;
+      color: var(--muted);
+      padding: .3rem 0 .3rem .8rem;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .pm-list li::before {
+      content: '•';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem .5rem;
+      }
+
+      .hero {
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+      }
+
+      .hero-right {
+        min-width: unset;
+        width: 100%;
+      }
+
+      .cv-body {
+        grid-template-columns: 1fr;
+      }
+
+      .main-col {
+        padding: 1.8rem 1.5rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      }
+
+      .side-col {
+        padding: 1.8rem 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero,
+    .section,
+    .skill-group {
+      animation: fadeUp .5s ease both;
+    }
+
+    .section:nth-child(2) {
+      animation-delay: .1s;
+    }
+
+    .section:nth-child(3) {
+      animation-delay: .2s;
+    }
+
+    .section:nth-child(4) {
+      animation-delay: .3s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cv-wrapper">
+
+    <!-- ═══ HERO ═══ -->
+    <header class="hero">
+      <div class="hero-left">
+        <h1>Tran Tuan Kiet</h1>
+        <span class="role">.NET Developer</span>
+      </div>
+      <div class="hero-right">
+        <h3>📋 Information</h3>
+        <div class="info-row"><span class="info-icon">🎂</span> Birthday: <span>01/06/1999</span></div>
+        <div class="info-row"><span class="info-icon">📍</span> Address: <span>District 9, HCM City</span></div>
+        <div class="info-row"><span class="info-icon">🌐</span> Language: <span>English</span></div>
+      </div>
+    </header>
+
+    <!-- ═══ BODY ═══ -->
+    <div class="cv-body">
+
+      <!-- ══ MAIN COLUMN ══ -->
+      <main class="main-col">
+
+        <!-- Aspiration -->
+        <section class="section aspiration">
+          <h2 class="section-title">✦ Aspiration</h2>
+          <p>
+            Desire to learn, develop myself, become an excellent software engineer, will be a full-stack developer
+            after 2 years. I wish to advance in my career with the goal of creating value for the company and
+            contributing to the company's sustainable development in the future. Becoming a proficient senior
+            developer within 5 years is my long-term goal.
+          </p>
+        </section>
+
+        <!-- Work Experience -->
+        <section class="section">
+          <h2 class="section-title">✦ Work Experience</h2>
+
+          <!-- Job 1 -->
+          <div class="job">
+            <div class="job-header">
+              <div class="job-period">3/2025 – Now</div>
+              <div class="job-company">Aqua VietNam</div>
+              <div class="job-position">Software Developer (Full-stack)</div>
+            </div>
+            <div class="job-meta">
+              <span class="meta-tag"><strong>Team:</strong> 5 members</span>
+              <span class="meta-tag"><strong>Product:</strong> Internal enterprise systems</span>
+              <span class="meta-tag"><strong>Lang:</strong> C#</span>
+              <span class="meta-tag"><strong>DB:</strong> SQL Server</span>
+              <span class="meta-tag"><strong>FW:</strong> ASP.NET Core (.NET 7), Blazor WASM</span>
+              <span class="meta-tag"><strong>Lib:</strong> Ant Design</span>
+              <span class="meta-tag"><strong>Other:</strong> SignalR, GitHub, Jenkins(CI/CD), JWT</span>
+            </div>
+            <div class="sub-label">Projects developed:</div>
+            <ul>
+              <li>IT Service Management (ITSM) system for handling and tracking user requests</li>
+              <li>KPI and task management system for company-wide employee performance tracking</li>
+              <li>Healthcare system management</li>
+              <li>Scrap disposal process management system</li>
+              <li>Real-time data extraction tools for factory scanning stations</li>
+            </ul>
+            <div class="sub-label">Responsibilities:</div>
+            <ul>
+              <li>Led the development and configuration of internal systems, ensuring alignment with business
+                requirements</li>
+              <li>Deployed and maintained applications on IIS</li>
+            </ul>
+          </div>
+
+          <!-- Job 2 -->
+          <div class="job">
+            <div class="job-header">
+              <div class="job-period">07/2023 – 15/02/2025</div>
+              <div class="job-company">SIS Soft</div>
+              <div class="job-position">Software Developer (Full-stack)</div>
+            </div>
+            <div class="job-meta">
+              <span class="meta-tag"><strong>Team:</strong> 14 members</span>
+              <span class="meta-tag"><strong>Product:</strong> Digital health solution</span>
+              <span class="meta-tag"><strong>Lang:</strong> C#</span>
+              <span class="meta-tag"><strong>DB:</strong> PostgreSQL</span>
+              <span class="meta-tag"><strong>FW:</strong> ASP.NET Core (.NET 8), Blazor, ABP</span>
+              <span class="meta-tag"><strong>Arch:</strong> DDD</span>
+              <span class="meta-tag"><strong>Tech:</strong> Redis, RabbitMQ, SignalR</span>
+              <span class="meta-tag"><strong>Lib:</strong> DevExpress</span>
+            </div>
+            <div class="sub-label">Digital hospital management system:</div>
+            <ul>
+              <li>Patient registration and admission management</li>
+              <li>Patient classification (health insurance / private services)</li>
+              <li>Hospital staff information management</li>
+              <li>Clinic and department management</li>
+              <li>Inpatient bed allocation and outpatient treatment management</li>
+              <li>Electronic medical records (EMR) management</li>
+              <li>X-ray and diagnostic imaging results management</li>
+              <li>Medication dispensing and international e-prescription exchange</li>
+              <li>Inventory and supply chain management</li>
+            </ul>
+            <div class="sub-label">Responsibilities:</div>
+            <ul>
+              <li>Developed and integrated APIs based on business requirements and BA specifications</li>
+              <li>Implemented backend services for data processing and system workflows</li>
+              <li>Built and maintained APIs for integration with the national health portal</li>
+              <li>Collaborated with cross-functional teams (BA, QA) to deliver system features</li>
+            </ul>
+          </div>
+
+          <!-- Job 3 -->
+          <div class="job">
+            <div class="job-header">
+              <div class="job-period">10/2022 – 07/2023</div>
+              <div class="job-company">Fujinet</div>
+              <div class="job-position">Software Development</div>
+            </div>
+            <div class="job-meta">
+              <span class="meta-tag"><strong>Team:</strong> 24 members</span>
+              <span class="meta-tag"><strong>Product:</strong> ERP</span>
+              <span class="meta-tag"><strong>Lang:</strong> VB.Net</span>
+              <span class="meta-tag"><strong>DB:</strong> Oracle</span>
+              <span class="meta-tag"><strong>FW:</strong> ASP.NET 4.8</span>
+            </div>
+            <div class="sub-label">Job description:</div>
+            <ul>
+              <li>Designed and developed an ERP system to manage inventory, procurement processes, and stock movement
+                (import/export), improving operational efficiency</li>
+            </ul>
+            <div class="sub-label">Responsibilities:</div>
+            <ul>
+              <li>Winform programming & User interface design</li>
+              <li>Data processing & Export Report</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+          <h2 class="section-title">✦ Education</h2>
+          <div class="edu-block">
+            <div class="edu-school">HO CHI MINH CITY COLLEGE OF INDUSTRY AND TRADE</div>
+            <div class="edu-major">Major: Information Technology</div>
+            <div class="edu-period">📅 09/2019 – 03/2023</div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- ══ SIDEBAR ══ -->
+      <aside class="side-col">
+
+        <!-- Technical Skills -->
+        <div class="section">
+          <div class="section-title-side">⚙ Technical Skills</div>
+
+          <div class="skill-group">
+            <div class="skill-label">Languages</div>
+            <div class="tag-list">
+              <span class="tag">C#</span>
+              <span class="tag">VB.NET</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-label">Frameworks</div>
+            <div class="tag-list">
+              <span class="tag">ASP.NET Core</span>
+              <span class="tag">Entity Framework</span>
+              <span class="tag">ABP Framework</span>
+              <span class="tag">Blazor</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-label">Frontend</div>
+            <div class="tag-list">
+              <span class="tag tag-blue">HTML</span>
+              <span class="tag tag-blue">CSS</span>
+              <span class="tag tag-blue">Bootstrap</span>
+              <span class="tag tag-blue">JavaScript</span>
+              <span class="tag tag-blue">jQuery</span>
+              <span class="tag tag-blue">DevExpress</span>
+              <span class="tag tag-blue">Ant Design</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-label">Knowledge</div>
+            <div class="tag-list">
+              <span class="tag">OOP</span>
+              <span class="tag">SOLID</span>
+              <span class="tag">LinQ</span>
+              <span class="tag">ADO.NET</span>
+              <span class="tag">MVC</span>
+              <span class="tag">Design Pattern</span>
+              <span class="tag">RESTful API</span>
+              <span class="tag">Swagger</span>
+              <span class="tag">DDD</span>
+              <span class="tag">JWT</span>
+              <span class="tag">Scrum/Agile</span>
+              <span class="tag">Linux LPI1/LPI2</span>
+              <span class="tag">Jenkins CI/CD</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-label">Database / Tools</div>
+            <div class="tag-list">
+              <span class="tag tag-green">SQL Server</span>
+              <span class="tag tag-green">PostgreSQL</span>
+              <span class="tag tag-green">Oracle</span>
+              <span class="tag tag-green">Visual Studio</span>
+              <span class="tag tag-green">GitHub</span>
+              <span class="tag tag-green">Jira</span>
+              <span class="tag tag-green">Redis</span>
+              <span class="tag tag-green">RabbitMQ</span>
+              <span class="tag tag-green">SignalR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Management -->
+        <div class="section">
+          <div class="section-title-side">📂 Project Management</div>
+          <ul class="pm-list">
+            <li>Configuration management tool: <strong>GitHub</strong></li>
+            <li>Problem Solving &amp; Time Management</li>
+            <li>Effective and creative thinking</li>
+            <li>Teamwork</li>
+            <li>Researching and Self-learning</li>
+          </ul>
+        </div>
+
+        <!-- Interests -->
+        <div class="section">
+          <div class="section-title-side">🎯 Interests</div>
+          <ul class="interest-list">
+            <li>Read books</li>
+            <li>Cooking</li>
+            <li>Play games with friends</li>
+            <li>Play Guitar</li>
+            <li>Play soccer</li>
+          </ul>
+        </div>
+
+      </aside>
+    </div><!-- /cv-body -->
+  </div><!-- /cv-wrapper -->
+</body>
+
+</html>
